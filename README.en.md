@@ -1,10 +1,19 @@
 # 🍔🍟📱💻 St. Regis Takeaway
 
+### 1. Project introduction
 St. Regis Food Delivery is a software product specially customized for catering enterprises (restaurants, hotels), including two parts: the system management background and the mobile terminal application. The system management background is mainly provided for internal employees of catering companies, and can manage and maintain restaurant categories, dishes, set meals, orders, employees, etc. Mobile applications are mainly provided to consumers, who can browse dishes online, add shopping carts, place orders, etc.
+
+
+- Background management: http://localhost:8080/backend/index.html
+- Front-end page: http://localhost:8080/front/index.html
+
 
 ![introduce](doc/img/introduce.png)
 
-## 🧑‍💼 Admin
+
+## 1. 🧑‍💼 management terminal
+
+![admin](doc/img/admin.png)
 
 The management terminal is mainly for the internal staff of the restaurant, providing the following functions:
 
@@ -32,7 +41,9 @@ The package management mainly maintains the package information in the current r
 
 The order details mainly maintain the order information placed by the user on the mobile terminal, including functions such as inquiry, cancellation, delivery, completion, and order report download.
 
-## 🧑‍🤝‍🧑 client
+## 2. 🧑‍🤝‍🧑 client
+
+![user](doc/img/user.png)
 
 The client side is mainly for consumers and provides the following functions:
 
@@ -57,19 +68,21 @@ After the user selects the dishes/sets, he can settle and pay for the dishes in 
 The basic information of the current user will be displayed on the personal center page, and the user can manage the delivery address and query historical order data.
 
 
-## Technology Selection
+## 2. Technology selection
+
+Regarding the technology selection of this project, we will introduce it from the aspects of user layer, gateway layer, application layer, and data layer. For our server development engineers, during the project development process, we mainly focus on the application Application of layer and data layer technologies.
 
 ![technology](doc/img/technology.png)
 
-### User Layer
+### 1. User layer
 
 When building the front-end page of the system management background, we will use technologies such as H5, Vue.js, and ElementUI. When building mobile applications, we will use WeChat applets.
 
-### Gateway layer
+### 2. Gateway layer
 
 Nginx is a server that is mainly used as an Http server to deploy static resources with high access performance. There are two more important functions in Nginx: reverse proxy and load balancing. During project deployment, to achieve Tomcat load balancing, it can be achieved through Nginx.
 
-### Application layer
+### 3. Application layer
 
 - SpringBoot: Quickly build Spring projects, adopting the idea of "convention is better than configuration" to simplify the configuration and development of Spring projects.
 - Spring: Unified management of various resources (beans) in the project will be used in all layers of Web development.
@@ -78,14 +91,36 @@ Nginx is a server that is mainly used as an Http server to deploy static resourc
 - Lombok: It can simplify Java code in the form of simple annotations and improve the development efficiency of developers. For example, JavaBean that often needs to be written in development requires time to add corresponding getters/setters, and perhaps write methods such as constructors and equals.
 - Swagger: It can automatically help developers generate interface documents and test the interfaces.
 
-### Data layer
+### 4. Data layer
 
 - MySQL: relational database, the core business data of this project will be stored in MySQL.
 - MybatisPlus: The persistence layer of this project will use MybatisPlus to simplify development, and the basic single table addition, deletion, modification and query can directly call the methods provided by the framework.
 - Redis: An in-memory database based on key-value format storage, with fast access speed, it is often used as a cache (reduces database access pressure and improves access efficiency), and will be used in later performance optimization.
 
-### tool
+### 5. Tools
 
 - Git: version control tool, in team collaboration, use this tool to manage the code in the project.
 - Maven: Project build tool.
 - JUnit: A unit testing tool. After the developer's functions are implemented, they need to unit test the functions through JUnit.
+
+## 3. Functional Architecture
+
+![architecture](doc/img/architecture.png)
+
+### 1. The front desk function of the mobile terminal
+
+Mobile phone number login, WeChat login, recipient address management, user history order query, dish specification query, shopping cart function, ordering, category and dish browsing.
+
+### 2. System management background function
+
+Employee login/exit, employee information management, category management, dish management, package management, dish taste management, order management.
+
+## 4. User roles
+
+In the St. Regis Food Delivery project, there are the following three types of users, which correspond to three roles: background system administrators, background system employees, and C-end (mobile) users.
+
+| Role | Permission Operation |
+| ---------------- | -------------------------------- ---------------------------- |
+| Background system administrator | Log in to the background management system and have all operation rights in the background system |
+| Ordinary employees of the background system | Log in to the background management system to manage dishes, packages, orders, etc. (not including employee management) |
+| C-end users | Log in to the mobile app, you can browse dishes, add shopping carts, set addresses, place orders online, etc. |
