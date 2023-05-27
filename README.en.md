@@ -48,7 +48,7 @@ In the ordering interface, it is necessary to display the category of dishes/set
 
 The dishes selected by the user will be added to the user's shopping cart, which mainly includes functions such as querying the shopping cart, adding to the shopping cart, deleting the shopping cart, and emptying the shopping cart.
 
-### s
+### Order Payment
 
 After the user selects the dishes/sets, he can settle and pay for the dishes in the shopping cart, and at this time, he needs to pay for the order.
 
