@@ -4,12 +4,38 @@ spring:
   application:
     #应用的名称，可选
     name: reggie_take_out
-  datasource:
-    druid:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/reggie?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
-      username: root
-      password: root
+  shardingsphere:
+    datasource:
+      names:
+        master,slave  #两个数据源，名字分别是master,slave,名字可以不固定，但是下面的master和slave的字眼要与此处的一致
+      #主数据源
+      master:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.138.100:3306/reggie?characterEncoding=utf-8&useSSL=false
+        name: root
+        password: root
+      #从数据源
+      slave:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.138.101:3306/reggie?characterEncoding=utf-8&useSSL=false
+        name: root
+        password: root
+    masterslave:
+      #读写配置分离 从库负载均衡策略，round_robin轮询，当多个从库则按顺序查询
+      load-balance-algorithm-type: round_robin
+      #最终的数据源名称  bin的名字
+      name: dataSource
+      #主库数据源名称 指定主库的数据源（很明显配置了master为主库）
+      master-data-source-name: master
+      #从库数据源名称列表，当多个从库以逗号分隔
+      slave-data-source-names: slave
+    props:
+      sql:
+        show: true #开启sql显示，默认为false
+  main:
+    allow-bean-definition-overriding: true
   redis:
     host: localhost
     port: 6379
