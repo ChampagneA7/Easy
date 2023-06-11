@@ -1,7 +1,7 @@
-# 🍔🍟📱💻 St. Regis Takeaway
+# 🍔🍟📱💻   Easy Catering
 
 ### 1. Project introduction
-St. Regis Food Delivery is a software product specially customized for catering enterprises (restaurants, hotels), including two parts: the system management background and the mobile terminal application. The system management background is mainly provided for internal employees of catering companies, and can manage and maintain restaurant categories, dishes, set meals, orders, employees, etc. Mobile applications are mainly provided to consumers, who can browse dishes online, add shopping carts, place orders, etc.
+Easy Catering is a software product specially customized for catering enterprises (restaurants, hotels), including two parts: the system management background and the mobile terminal application. The system management background is mainly provided for internal employees of catering companies, and can manage and maintain restaurant categories, dishes, set meals, orders, employees, etc. Mobile applications are mainly provided to consumers, who can browse dishes online, add shopping carts, place orders, etc.
 
 
 - Background management: http://localhost:8080/backend/index.html
@@ -117,7 +117,7 @@ Employee login/exit, employee information management, category management, dish 
 
 ## 4. User roles
 
-In the St. Regis Food Delivery project, there are the following three types of users, which correspond to three roles: background system administrators, background system employees, and C-end (mobile) users.
+In the Easy Catering project, there are the following three types of users, which correspond to three roles: background system administrators, background system employees, and C-end (mobile) users.
 
 | Role | Permission Operation |
 | ---------------- | -------------------------------- ---------------------------- |
